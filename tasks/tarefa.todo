@@ -1,0 +1,97 @@
+Segue a tua tarefa da semana:
+Vc deve fazer um controle de receita e despesas, com login
+Se possível, ter um painel que mostre o saldo atual e o valor médio gasto por mês
+
+Regras:
+A linguagem vc escolhe, porém vc tem 40 horas pra fazer (4 HR vc deve usar planejando, 36 hs desenvolvimento)
+
+
+✄ -----------------------
+Brainstorm:
+    Configuração de ambiente:
+        [+] Terminal
+        [+] VSCode
+        [+] Google Chrome
+        [+] PHP 8.2
+        [+] Composer 2.5
+        [+] Laravel 10
+            [+] Variáveis de ambiente (.env)
+        [+] Postgres 15
+        [+] Git
+            Depois de gerar o projeto com o Laravel, use o próprio VSCode para criar um repositório no github e fazer o push
+        [ ] Docker
+        [ ] Docker Compose
+
+    CRUD de usuário:
+        [-] Nome
+        [-] Email
+        [-] Senha
+        [-] Data de nascimento
+        [-] CPF
+        [-] Telefone
+        [-] Endereço
+        [-] CEP
+        [-] Cidade
+        [-] Estado
+        [-] País
+        [-] Foto
+        [-] Autenticação
+        [-] Validação
+    Login:
+        [-] Email
+        [-] Senha
+        Mais simples:
+            [+] Use o JetStream e LiveWire do próprio Laravel, que permite associar o login à conta Google, Face, etc.
+               + $ composer require laravel/jetstream
+               + $ composer require livewire/livewire
+               + $ php artisan jetstream:install livewire --teams
+
+    Gerar com o Eloquent do Laravel:
+            [ ] Testes
+                + COMECE POR AQUI! Crie os testes antes de criar o código (TDD)
+            [ ] Views
+                + PROSSIGA POR AQUI! Crie as views antes de criar o código (BDD)
+            
+            [ ] Model
+            [ ] Migration
+            [ ] Factory
+            [ ] Seeder
+            [ ] Policy
+            [ ] Controller
+            [ ] Form request
+                + $ php artisan make:model MeuModel -a @critical
+                => A flag “-a” ou “--all” já criará todos os anteriores de uma vez só
+            
+            [ ] Rotas (API)
+            [ ] Middlewares
+            [ ] Policies
+            [ ] Gate
+            [ ] Helpers
+            [ ] Deploy
+            [ ] Facades
+            [ ] Logs
+            [ ] Cache
+            [ ] Jobs @expendable
+            [ ] Events
+            [ ] Listeners
+            [ ] Notifications @low
+            [ ] Mailables @low
+            [+] Translator
+            [ ] Upload de arquivos @low
+            [ ] Documentação
+
+    CRUD de receita:
+        [ ] Descrição
+        [ ] Valor
+        [ ] Data
+    CRUD de despesas:
+        [ ] Descrição
+        [ ] Valor
+        [ ] Data
+    Listagens:
+        [ ] Listagem de receita
+        [ ] Listagem de despesa
+    [ ] Cálculo de saldo
+    [ ] Cálculo de média de gasto mensal
+    [ ] Painel com saldo atual e média de gasto mensal
+Archive:

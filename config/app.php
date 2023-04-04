@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'CREDA - Controle de Receitas e Despesas Adronilson'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://creda.com.br'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -82,7 +82,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    // 'locale' => 'en',
+    'locale' => 'pt_br',
 
     /*
     |--------------------------------------------------------------------------
@@ -194,6 +195,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\FortifyServiceProvider::class,
+        App\Providers\JetstreamServiceProvider::class,
 
     ],
 
