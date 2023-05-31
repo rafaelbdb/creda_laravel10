@@ -7,16 +7,41 @@ A linguagem vc escolhe, porém vc tem 40 horas pra fazer (4 HR vc deve usar plan
 
 
 ✄ -----------------------
+
+Tips from ChatGPT:
+
+- Version Control: Use a version control system like Git to track changes in your codebase. Initialize a Git repository and commit your code regularly. This will help you easily manage and roll back changes if needed.
+- Laravel Configuration: Laravel provides a flexible configuration system. Make use of the .env file to store environment-specific configuration values. It's a good practice to use environment variables to store sensitive information like API keys or database credentials.
+- Laravel Mix and Vite: Laravel Mix is a powerful asset compilation tool that simplifies the process of compiling and bundling frontend assets. However, you mentioned using Vite, which is a fantastic development build tool. Vite is known for its speed and efficient hot module replacement. Consider using Vite for your frontend development and integrate it with Laravel using the Laravel-Vite package.
+- Directory Structure: Laravel has a well-defined directory structure that promotes organization and maintainability. Familiarize yourself with the structure and follow best practices like separating concerns and keeping code modular.
+- Database Design: Plan your database structure carefully. Laravel supports multiple database systems, so choose the one that suits your project requirements. Utilize Laravel's database migrations to manage database schema changes effectively.
+- Security: Security should always be a top priority. Keep your dependencies up to date and apply security patches regularly. Follow Laravel's security recommendations, such as validating user input, protecting against SQL injection, and implementing proper authentication and authorization mechanisms.
+- Error Handling and Logging: Laravel provides robust error handling capabilities. Configure error reporting and logging to catch and log any issues that may occur during development and production. Make sure to handle exceptions gracefully and provide informative error messages to users.
+- Testing: Writing tests helps ensure the stability and reliability of your application. Laravel includes a built-in testing framework called PHPUnit. Write unit tests, feature tests, and integration tests to cover critical functionalities and prevent regressions.
+- Documentation: Document your code and APIs. Well-documented code makes it easier for you and other developers to understand and maintain the project. Consider using tools like Laravel's built-in API documentation generator, Laravel Dusk for browser testing, or tools like Swagger for API documentation.
+- Continuous Integration/Continuous Deployment (CI/CD): Automate your build and deployment process using CI/CD tools like Jenkins, GitLab CI, or GitHub Actions. This allows you to run tests, build assets, and deploy your application automatically whenever changes are pushed to your repository.
+- PostgreSQL Configuration: Configure your Laravel application to use PostgreSQL as the database driver. Update the .env file with the appropriate PostgreSQL credentials, including the database name, username, and password.
+- Database Migrations: Laravel's migration system allows you to define database schema changes in a version-controlled manner. Use migrations to create database tables, modify existing tables, and manage database schema changes. Migrations help ensure consistency across different environments and make it easier to collaborate with other developers.
+- Database Seeding: Laravel's database seeding feature is useful for populating your database with dummy or test data. You can create seeders to generate sample records for testing or to set up initial data for your application. Consider using seeders to create initial data for development and testing purposes.
+- Models and Eloquent ORM: Laravel's Eloquent ORM simplifies database operations by providing an intuitive and expressive way to work with databases. Define models for your database tables, and use Eloquent's features like query building, relationships, and data manipulation to interact with the database.
+- PostgreSQL-specific Features: PostgreSQL offers many advanced features that go beyond standard SQL capabilities. Explore PostgreSQL-specific functionalities like JSONB data types, full-text search, advanced indexing options, and stored procedures. Leverage these features when applicable to enhance your application's performance and functionality.
+- GitHub Best Practices: Since you've already pushed your project to GitHub, consider following these best practices:
+- Branching Strategy: Use a branching strategy like GitFlow to manage your codebase effectively. Create branches for features, bug fixes, and hotfixes, and merge them back to the main branch (usually "master" or "main") using pull requests.
+- Code Reviews: Encourage code reviews among your team members. Reviewing each other's code helps catch potential issues, improves code quality, and ensures consistency across the project. GitHub provides a built-in pull request system that facilitates code reviews.
+- Issues and Milestones: Use GitHub's issue tracking system to create and manage tasks, bugs, and feature requests. Organize your work by setting up milestones and assigning issues to team members. This helps track progress and provides a centralized place for discussing and resolving project-related topics.
+- Continuous Integration: Set up a CI workflow using GitHub Actions or a CI tool of your choice. Configure your CI pipeline to run tests, linters, and other quality checks automatically whenever changes are pushed to your repository. This helps catch errors early and ensures code stability.
+
+✄ -----------------------
 Brainstorm:
     Configuração de ambiente:
         [+] Terminal
         [+] VSCode
         [+] Google Chrome
-        [+] PHP 8.2
+        [+] PHP 8.1
         [+] Composer 2.5
         [+] Laravel 10
             [+] Variáveis de ambiente (.env)
-        [+] Postgres 15
+        [+] Postgres 14.8
         [+] Git
             Depois de gerar o projeto com o Laravel, use o próprio VSCode para criar um repositório no github e fazer o push
         [ ] Docker
@@ -51,7 +76,7 @@ Brainstorm:
                 + COMECE POR AQUI! Crie os testes antes de criar o código (TDD)
             [ ] Views
                 + PROSSIGA POR AQUI! Crie as views antes de criar o código (BDD)
-            
+
             [ ] Model
             [ ] Migration
             [ ] Factory
@@ -61,7 +86,7 @@ Brainstorm:
             [ ] Form request
                 + $ php artisan make:model MeuModel -a @critical
                 => A flag “-a” ou “--all” já criará todos os anteriores de uma vez só
-            
+
             [ ] Rotas (API)
             [ ] Middlewares
             [ ] Policies

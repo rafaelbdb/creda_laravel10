@@ -1,3 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add your custom styles below this line */
+
+/* Set the font family and font size for the entire page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+/* Center the content on the page */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Style the page header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Style the page footer */
+.footer {
+    padding: 20px 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.footer p {
+    font-size: 14px;
+    color: #a0aec0;
+}
+
+/* Style the form */
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.form label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.form button {
+    padding: 10px;
+    background-color: #4299e1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #3182ce;
+}
