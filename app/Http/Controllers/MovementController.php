@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMovementRequest;
 use App\Http\Requests\UpdateMovementRequest;
+use App\Models\Category;
 use App\Models\Movement;
 
 class MovementController extends Controller
@@ -23,7 +24,9 @@ class MovementController extends Controller
      */
     public function create()
     {
-        return view('movements.create');
+        $categories = Category::all();
+
+        return view('movements.create', compact('categories'));
     }
 
     /**

@@ -9,8 +9,58 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                    <a href="{{ route('movements.create') }}" class="text-blue-500 hover:text-blue-700">
+                        <i class="fas fa-plus"></i>
+                        </a>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($movements as $movement)
+                                <tr>
+                                    <td class="border px-4 py-2">{{ $movement->name }}</td>
+                                    <td class="border px-4 py-2">{{ $movement->description }}</td>
+                                    <td class="border px-4 py-2">R$ {{ $movement->amount }}</td>
+                                    <td class="border px-4 py-2">{{ $movement->type }}</td>
+                                    <td class="border px-4 py-2">{{ $movement->date }}</td>
+                                    <td class="border px-4 py-2">
+                                        <a href="{{ route('movements.edit', $movement->id) }}" class="text-blue-500 hover:text-blue-700">
+                                        <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form action="{{ route('movements.destroy', $movement->id) }}" method="POST" class="inline-block">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-500 hover:text-red-700">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <div class="mt-4">
+                        <p>Average Expenses: R$ {{ number_format($avgExpenses, 2, ',', '.') }}</p>
+                        <p>Balance: R$ {{ number_format($balance, 2, ',', '.') }}</p>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="newMovementModal" tabindex="-1" aria-labelledby="newMovementModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @include('movements.create', ['categories' => $categories])
             </div>
         </div>
     </div>
