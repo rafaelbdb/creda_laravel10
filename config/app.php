@@ -198,6 +198,11 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        /*
+        * Vite Service Provider
+        */
+        // Vite\ViteServiceProvider::class,
+
     ],
 
     /*

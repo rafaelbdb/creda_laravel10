@@ -9,9 +9,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <a href="{{ route('movements.create') }}" class="text-blue-500 hover:text-blue-700">
+
+                    <button type="button" id="openModalButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newMovementModal">
                         <i class="fas fa-plus"></i>
-                        </a>
+                      </button>
+
+                    {{-- <button id="openModalButton" class="text-blue-500 hover:text-blue-700"><i class="fas fa-plus"></i></button> --}}
                     <table>
                         <thead>
                             <tr>
@@ -59,9 +62,18 @@
     <!-- Modal -->
     <div class="modal fade" id="newMovementModal" tabindex="-1" aria-labelledby="newMovementModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
                 @include('movements.create', ['categories' => $categories])
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 </x-app-layout>
