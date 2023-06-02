@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Policies;
 
 use App\Models\Movement;
@@ -11,17 +10,19 @@ class MovementPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user): Response
     {
-        //
+        // By default, deny access to viewing any movements
+        return Response::deny('You are not authorized to view movements.');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Movement $movement): bool
+    public function view(User $user, Movement $movement): Response
     {
-        //
+        // By default, deny access to viewing the movement
+        return Response::deny('You are not authorized to view this movement.');
     }
 
     /**
@@ -29,7 +30,8 @@ class MovementPolicy
      */
     public function create(User $user): bool
     {
-        //
+        // Only authenticated users can create movements
+        return $user->getAuthIdentifier();
     }
 
     /**
@@ -37,7 +39,8 @@ class MovementPolicy
      */
     public function update(User $user, Movement $movement): bool
     {
-        //
+        // Only the owner of the movement can update it
+        return $user->id === $movement->user_id;
     }
 
     /**
@@ -45,7 +48,8 @@ class MovementPolicy
      */
     public function delete(User $user, Movement $movement): bool
     {
-        //
+        // Only the owner of the movement can delete it
+        return $user->id === $movement->user_id;
     }
 
     /**
@@ -53,7 +57,8 @@ class MovementPolicy
      */
     public function restore(User $user, Movement $movement): bool
     {
-        //
+        // By default, do not allow restoring movements
+        return false;
     }
 
     /**
@@ -61,6 +66,7 @@ class MovementPolicy
      */
     public function forceDelete(User $user, Movement $movement): bool
     {
-        //
+        // By default, do not allow permanently deleting movements
+        return false;
     }
 }

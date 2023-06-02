@@ -35,9 +35,7 @@ class CategoryController extends Controller
 
         $category = new Category();
         $category->name = $validated['name'];
-        $category->description = $validated['description'];
         $category->type = $validated['type'];
-        $category->user_id = $validated['user_id'];
 
         $category->save();
     }
@@ -68,9 +66,7 @@ class CategoryController extends Controller
         $validated = $request->validated();
 
         $category->name = $validated['name'];
-        $category->description = $validated['description'];
         $category->type = $validated['type'];
-        $category->user_id = $validated['user_id'];
         $category->save();
 
         return redirect()->route('categories.show', $category);
@@ -85,7 +81,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        // return redirect()->route('dashboard');
         return redirect()->route('categories.index');
     }
 }

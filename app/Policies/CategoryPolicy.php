@@ -11,17 +11,19 @@ class CategoryPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user): Response
     {
-        //
+        // By default, deny access to viewing any categories
+        return Response::deny('You are not authorized to view categories.');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Category $category): bool
+    public function view(User $user, Category $category): Response
     {
-        //
+        // By default, deny access to viewing the category
+        return Response::deny('You are not authorized to view this category.');
     }
 
     /**
@@ -29,7 +31,8 @@ class CategoryPolicy
      */
     public function create(User $user): bool
     {
-        //
+        // Only authenticated users can create categories
+        return $user->getAuthIdentifier();
     }
 
     /**
@@ -37,7 +40,8 @@ class CategoryPolicy
      */
     public function update(User $user, Category $category): bool
     {
-        //
+        // Only the owner of the category can update it
+        return $user->id === $category->user_id;
     }
 
     /**
@@ -45,7 +49,8 @@ class CategoryPolicy
      */
     public function delete(User $user, Category $category): bool
     {
-        //
+        // Only the owner of the category can delete it
+        return $user->id === $category->user_id;
     }
 
     /**
@@ -53,7 +58,8 @@ class CategoryPolicy
      */
     public function restore(User $user, Category $category): bool
     {
-        //
+        // By default, do not allow restoring categories
+        return false;
     }
 
     /**
@@ -61,6 +67,7 @@ class CategoryPolicy
      */
     public function forceDelete(User $user, Category $category): bool
     {
-        //
+        // By default, do not allow permanently deleting categories
+        return false;
     }
 }

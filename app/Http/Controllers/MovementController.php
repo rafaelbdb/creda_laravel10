@@ -35,15 +35,15 @@ class MovementController extends Controller
     public function store(StoreMovementRequest $request)
     {
         $validated = $request->validated();
-
+        
         $movement = new Movement();
-        $movement->name = $validated['name'];
-        $movement->description = $validated['description'];
-        $movement->type = $validated['type'];
-        $movement->amount = $validated['amount'];
+        $this->authorize('create', $movement);
+        
         $movement->date = $validated['date'];
-        $movement->category_id = $validated['category_id'];
+        $movement->description = $validated['description'];
         $movement->user_id = $validated['user_id'];
+        $movement->category_id = $validated['category_id'];
+        $movement->amount = $validated['amount'];
 
         $movement->save();
     }
@@ -73,13 +73,11 @@ class MovementController extends Controller
     {
         $validated = $request->validated();
 
-        $movement->name = $validated['name'];
-        $movement->description = $validated['description'];
-        $movement->type = $validated['type'];
-        $movement->amount = $validated['amount'];
         $movement->date = $validated['date'];
-        $movement->category_id = $validated['category_id'];
+        $movement->description = $validated['description'];
         $movement->user_id = $validated['user_id'];
+        $movement->category_id = $validated['category_id'];
+        $movement->amount = $validated['amount'];
 
         $movement->save();
     }
@@ -93,7 +91,6 @@ class MovementController extends Controller
 
         $movement->delete();
 
-        // return redirect()->route('dashboard');
         return redirect()->route('movements.index');
     }
 }
