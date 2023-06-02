@@ -93,6 +93,7 @@ class MovementController extends Controller
 
         $movement->delete();
 
+        // return redirect()->route('dashboard');
         return redirect()->route('movements.index');
     }
 }
